@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- El viewport permite que el diseño mobile first use el ancho real del dispositivo. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ed">
+  <meta name="description" content="Senda propone rutas de naturaleza cuidadas, cercanas y a tu propio ritmo.">
+  <title>Senda — Sal a tu ritmo</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+</head>
+<body>
+  <!-- El enlace de salto evita recorrer la navegación con teclado en cada visita. -->
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <a class="marca" href="index.html" aria-label="Senda, inicio">
+      <span class="marca-icono" aria-hidden="true">s</span>
+      <span>senda<span class="marca-punto">.</span></span>
+    </a>
+
+    <!-- details ofrece apertura y cierre nativos, también sin JavaScript. -->
+    <details class="navegacion">
+      <summary class="menu-boton" aria-label="Abrir o cerrar navegación">
+        <span class="menu-linea" aria-hidden="true"></span>
+        <span class="menu-linea" aria-hidden="true"></span>
+      </summary>
+      <nav class="menu" aria-label="Navegación principal">
+        <a class="enlace-nav activo" href="index.html" aria-current="page">Inicio</a>
+        <a class="enlace-nav" href="rutas.html">Rutas</a>
+        <a class="enlace-nav" href="movimiento.html">Guía de movimiento</a>
+        <a class="boton boton-nav" href="rutas.html#elige">Encuentra tu ruta <span aria-hidden="true">↗</span></a>
+      </nav>
+    </details>
+    <!-- El nav independiente evita que el estado cerrado de details oculte enlaces en escritorio. -->
+    <nav class="menu menu-escritorio" aria-label="Navegación principal">
+      <a class="enlace-nav activo" href="index.html" aria-current="page">Inicio</a>
+      <a class="enlace-nav" href="rutas.html">Rutas</a>
+      <a class="enlace-nav" href="movimiento.html">Guía de movimiento</a>
+      <a class="boton boton-nav" href="rutas.html#elige">Encuentra tu ruta <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- La portada presenta el servicio antes de introducir adornos o movimiento. -->
+    <section class="hero contenedor" aria-labelledby="titulo-principal">
+      <div class="hero-texto">
+        <p class="ceja"><span class="punto-vivo" aria-hidden="true"></span> Naturaleza, sin prisa</p>
+        <h1 id="titulo-principal">El mejor plan<br>es <span>salir.</span></h1>
+        <p class="hero-bajada">Rutas cercanas, grupos pequeños y tiempo para mirar alrededor. Encuentra un camino que encaje contigo.</p>
+        <div class="hero-acciones">
+          <a class="boton boton-principal" href="rutas.html#elige">Explorar rutas <span aria-hidden="true">→</span></a>
+          <a class="enlace-texto" href="#filosofia">Nuestra manera <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-dato">
+          <div class="avatares" aria-hidden="true"><span>A</span><span>M</span><span>L</span><span>+</span></div>
+          <p><strong>4,9/5</strong><br>de quienes ya salieron</p>
+        </div>
+      </div>
+
+      <!-- La ilustración CSS evoca un paisaje; aria-hidden impide anunciar decoración. -->
+      <div class="hero-paisaje">
+        <div class="sol" aria-hidden="true"></div>
+        <div class="montana montana-lejana" aria-hidden="true"></div>
+        <div class="montana montana-media" aria-hidden="true"></div>
+        <div class="montana montana-cercana" aria-hidden="true"></div>
+        <div class="camino" aria-hidden="true"></div>
+        <div class="tarjeta-ruta">
+          <span class="tarjeta-icono" aria-hidden="true">↗</span>
+          <span><strong>El hayedo de Otzarreta</strong><small>5,2 km · nivel fácil</small></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Métricas legibles y estáticas conservan el mensaje si se desactivan animaciones. -->
+    <section class="franja-numeros" aria-label="Senda en cifras">
+      <div class="contenedor numeros-grid">
+        <p><strong>28</strong><span>rutas para descubrir</span></p>
+        <p><strong>8 máx.</strong><span>personas por grupo</span></p>
+        <p><strong>0 prisa</strong><span>tu ritmo es el ritmo</span></p>
+        <p><strong>100%</strong><span>ganas de volver</span></p>
+      </div>
+    </section>
+
+    <section class="seccion contenedor" id="filosofia" aria-labelledby="titulo-filosofia">
+      <div class="cabecera-seccion revelar">
+        <div>
+          <p class="ceja">Una forma más amable de salir</p>
+          <h2 id="titulo-filosofia">Menos llegar.<br><span>Más estar.</span></h2>
+        </div>
+        <p class="texto-seccion">No hace falta ir lejos ni ir rápido. Diseñamos planes sencillos para que el camino vuelva a ser el destino.</p>
+      </div>
+
+      <!-- Las tarjetas agrupan decisiones de servicio útiles, no efectos decorativos. -->
+      <div class="beneficios-grid">
+        <article class="beneficio tarjeta revelar">
+          <span class="beneficio-numero">01</span>
+          <span class="beneficio-icono" aria-hidden="true">⌁</span>
+          <h3>Cerca de casa</h3>
+          <p>Rutas accesibles en transporte público, con puntos de encuentro claros.</p>
+          <a class="flecha-circular" href="rutas.html" aria-label="Ver nuestras rutas">↗</a>
+        </article>
+        <article class="beneficio tarjeta revelar">
+          <span class="beneficio-numero">02</span>
+          <span class="beneficio-icono" aria-hidden="true">◌</span>
+          <h3>Grupos pequeños</h3>
+          <p>Hay espacio para conversar, guardar silencio y caminar a tu manera.</p>
+          <a class="flecha-circular" href="rutas.html#elige" aria-label="Elegir una ruta">↗</a>
+        </article>
+        <article class="beneficio tarjeta revelar">
+          <span class="beneficio-numero">03</span>
+          <span class="beneficio-icono" aria-hidden="true">✳</span>
+          <h3>Sin experiencia</h3>
+          <p>Indicamos distancia y desnivel para que elijas con confianza.</p>
+          <a class="flecha-circular" href="rutas.html#preguntas" aria-label="Consultar preguntas frecuentes">↗</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- El formulario nativo y su checkbox conservan su función sin scripts. -->
+    <section class="invitacion" aria-labelledby="titulo-invitacion">
+      <div class="contenedor invitacion-interior revelar">
+        <div>
+          <p class="ceja ceja-clara">Una nota al mes, como mucho</p>
+          <h2 id="titulo-invitacion">Un poco de aire<br>en tu bandeja.</h2>
+          <p>Rutas nuevas, ideas para salir y ninguna prisa por leerlo.</p>
+        </div>
+        <form class="formulario" action="mailto:hola@senda.example" method="post" enctype="text/plain">
+          <label for="correo">Tu correo electrónico</label>
+          <div class="campo-fila">
+            <input id="correo" name="correo" type="email" placeholder="nombre@correo.com" autocomplete="email" required>
+            <button class="boton boton-claro" type="submit">Apuntarme <span aria-hidden="true">→</span></button>
+          </div>
+          <label class="consentimiento"><input type="checkbox" required> Acepto recibir novedades de Senda.</label>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-interior">
+      <a class="marca marca-pie" href="index.html"><span class="marca-icono" aria-hidden="true">s</span><span>senda<span class="marca-punto">.</span></span></a>
+      <p>Hecho para mirar un poco más alrededor.</p>
+      <div class="pie-enlaces"><a href="rutas.html">Rutas</a><a href="movimiento.html">Guía de movimiento</a></div>
+      <small>© 2026 Senda. Camina a tu ritmo.</small>
+    </div>
+  </footer>
+</body>
+</html>

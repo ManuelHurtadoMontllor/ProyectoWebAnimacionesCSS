@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- La guía es una página del proyecto para consultar decisiones, no un documento aparte. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ed">
+  <meta name="description" content="Guía de movimiento, interacción, rendimiento y accesibilidad de Senda.">
+  <title>Guía de movimiento — Senda</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <a class="marca" href="index.html" aria-label="Senda, inicio"><span class="marca-icono" aria-hidden="true">s</span><span>senda<span class="marca-punto">.</span></span></a>
+    <details class="navegacion">
+      <summary class="menu-boton" aria-label="Abrir o cerrar navegación"><span class="menu-linea" aria-hidden="true"></span><span class="menu-linea" aria-hidden="true"></span></summary>
+      <nav class="menu" aria-label="Navegación principal">
+        <a class="enlace-nav" href="index.html">Inicio</a>
+        <a class="enlace-nav" href="rutas.html">Rutas</a>
+        <a class="enlace-nav activo" href="movimiento.html" aria-current="page">Guía de movimiento</a>
+      </nav>
+    </details>
+    <!-- La navegación de escritorio permanece visible sin forzar abierto el menú móvil. -->
+    <nav class="menu menu-escritorio" aria-label="Navegación principal">
+      <a class="enlace-nav" href="index.html">Inicio</a>
+      <a class="enlace-nav" href="rutas.html">Rutas</a>
+      <a class="enlace-nav activo" href="movimiento.html" aria-current="page">Guía de movimiento</a>
+    </nav>
+  </header>
+  <main class="contenedor guia-contenido" id="contenido">
+    <p class="ceja"><span class="punto-vivo" aria-hidden="true"></span> Decisiones detrás de cada gesto</p>
+    <h1>Movimiento con los pies en la tierra.</h1>
+    <p class="guia-intro">En Senda el movimiento acompaña una idea sencilla: salir con calma y saber siempre qué está pasando. Primero garantizamos el contenido y la navegación; después añadimos feedback y, al final, movimiento ambiental. Si las animaciones desaparecen, todas las rutas, formularios y explicaciones continúan disponibles.</p>
+
+    <section class="guia-bloque" aria-labelledby="caracter">
+      <h2 id="caracter">El carácter de Senda</h2>
+      <p>El movimiento es <strong>pausado</strong>, porque queremos dejar espacio para leer y orientarse; <strong>orgánico</strong>, porque las curvas suaves recuerdan a un sendero y evitan los arranques bruscos; y <strong>atento</strong>, porque solo se mueve algo cuando aporta una pista de foco, estado o profundidad. Estos tres rasgos conectan con paseos de grupos pequeños: no hay cronómetros, carreras ni efectos que compitan con el paisaje.</p>
+    </section>
+
+    <section class="guia-bloque" aria-labelledby="tokens">
+      <h2 id="tokens">Tokens de movimiento</h2>
+      <p>Los tokens se declaran en <code>css/animaciones.css</code> y se comparten entre estados de interacción, entrada de contenido y giro. La separación evita que cada componente invente su propio tempo; los nombres describen la intención, no una animación concreta.</p>
+      <div class="tokens">
+        <div class="token"><code>--duracion-rapida</code><span>160 ms · respuesta inmediata de controles y enlaces</span></div>
+        <div class="token"><code>--duracion-media</code><span>320 ms · cambio de cara de la tarjeta 3D</span></div>
+        <div class="token"><code>--duracion-lenta</code><span>650 ms · entrada de contenido y aparición del sol</span></div>
+        <div class="token"><code>--curva-suave</code><span>cubic-bezier(.2, .7, .2, 1) · cambios cotidianos con salida fluida</span></div>
+        <div class="token"><code>--curva-salida</code><span>cubic-bezier(.16, 1, .3, 1) · entrada que se asienta sin rebote</span></div>
+      </div>
+    </section>
+
+    <section class="guia-bloque" aria-labelledby="inventario">
+      <h2 id="inventario">Inventario de movimiento</h2>
+      <p>La tabla reúne animaciones automáticas y transiciones provocadas por una interacción. Solo se interpolan <code>transform</code> y <code>opacity</code>; los cambios de color y borde son feedback instantáneo, no propiedades animadas, y tampoco se modifica el layout durante una transición.</p>
+      <div class="tabla-desborde" role="region" aria-label="Tabla de animaciones, desplazable horizontalmente" tabindex="0">
+        <table class="tabla-guia">
+          <thead><tr><th>Elemento</th><th>Tipo</th><th>Propiedades</th><th>Duración</th><th>Curva</th><th>Propósito</th></tr></thead>
+          <tbody>
+            <tr><td>Sol de la portada</td><td>Entrada, @keyframes</td><td>transform, opacity</td><td>650 ms, una vez</td><td>salida</td><td>Indicar el punto de luz que organiza la ilustración; el desplazamiento corto le da entrada sin apartar la atención del titular.</td></tr>
+            <tr><td>Punto de disponibilidad</td><td>Pulso, @keyframes</td><td>transform, opacity</td><td>2,8 s, continuo</td><td>suave</td><td>Sugerir que la temporada está activa. Su escala y contraste contenidos lo distinguen de una alerta urgente.</td></tr>
+            <tr><td>Enlaces, botones, tarjetas y menú</td><td>Transición por hover, foco o activo</td><td>transform, opacity; color y borde instantáneos</td><td>160 ms</td><td>suave</td><td>Confirmar que el elemento es interactivo y que la pulsación llegó; una respuesta breve conserva sensación directa.</td></tr>
+            <tr><td>Menú móvil y sus líneas</td><td>Transición al abrir/cerrar details</td><td>transform, opacity</td><td>160 ms</td><td>suave</td><td>Asociar visualmente el botón con el panel que aparece. El disclosure nativo de details abre y cierra el menú sin JavaScript.</td></tr>
+            <tr><td>Secciones .revelar</td><td>Entrada al entrar en viewport, CSS view timeline</td><td>transform, opacity</td><td>650 ms</td><td>salida</td><td>Introducir cada sección al llegar a ella. Solo se activa si el navegador admite scroll timelines; sin ese soporte el contenido queda visible y no depende de JavaScript.</td></tr>
+            <tr><td>Tarjeta de preparación</td><td>Giro 3D por hover o foco</td><td>transform: rotateY</td><td>320 ms</td><td>suave</td><td>Descubrir una lista auxiliar y mostrar que hay una segunda cara. La tarjeta no oculta requisitos de seguridad ni datos esenciales.</td></tr>
+            <tr><td>Guardar una ruta</td><td>Feedback de checkbox</td><td>transform; fondo y símbolo instantáneos</td><td>160 ms</td><td>suave</td><td>El checkbox nativo informa el estado guardado a tecnologías de asistencia y permite activarlo por teclado. El corazón cambia como pista visual, sin que el significado dependa del color.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="guia-bloque" aria-labelledby="decisiones">
+      <h2 id="decisiones">Decisiones de interacción, rendimiento y accesibilidad</h2>
+      <div class="decisiones">
+        <article class="decision"><h3>La estructura viene primero</h3><p>Las páginas usan encabezados, navegación, main, secciones, artículos y pie de página. Enlaces, detalles, email, checkbox de favoritos y checkbox de consentimiento son HTML nativo. No hay JavaScript: navegar, guardar visualmente una ruta y validar el formulario no dependen de scripts ni de animaciones.</p></article>
+        <article class="decision"><h3>Scroll progresivo, solo CSS</h3><p>Las secciones usan una view timeline dentro de @supports. El navegador calcula el avance según su entrada al viewport, sin listeners de scroll ni trabajo por frame en JavaScript. Si no reconoce animation-timeline, la regla no se aplica y las secciones siguen visibles por defecto.</p></article>
+        <article class="decision"><h3>Propiedades baratas de componer</h3><p>Las animaciones de entrada y transformación cambian transform y opacity; no animan ancho, altura ni posición del layout, evitando recalcular toda la página a cada paso. No usamos imágenes remotas, librerías ni filtros animados: las ilustraciones son CSS y las pocas transiciones no crean una dependencia de red.</p></article>
+        <article class="decision"><h3>Movimiento reducido respetado</h3><p>La consulta prefers-reduced-motion elimina el pulso, reduce la duración de transiciones a un instante y deja las secciones visibles, sin desplazamiento. También se desactiva el giro 3D; el reverso de la tarjeta pasa a estar en el flujo de lectura y su información sigue disponible.</p></article>
+        <article class="decision"><h3>Foco visible y entrada multimodal</h3><p>Los controles presentan un contorno de foco visible con separación suficiente. El menú es un summary nativo y la tarjeta admite foco de teclado. El hover se limita a dispositivos que lo admiten y el favorito es un checkbox nativo: su estado marcado se anuncia sin depender del corazón o del color.</p></article>
+        <article class="decision"><h3>Animación con salida segura</h3><p>Los elementos son visibles por defecto y CSS solo añade la entrada si @supports confirma la view timeline. Un navegador antiguo, una hoja de animaciones no cargada o una preferencia de movimiento reducido no pueden dejar bloques transparentes ni impedir la lectura.</p></article>
+        <article class="decision"><h3>Respuesta antes que espectáculo</h3><p>Las acciones usan un tempo rápido común de 160 ms y un cambio pequeño de escala o elevación. No hay animaciones que impidan pulsar botones, contadores que obliguen a esperar ni autoplay de video. El pulso continuo es el único bucle y tiene amplitud baja, duración larga y alternativa reducida.</p></article>
+        <article class="decision"><h3>Contenido legible en pantallas pequeñas</h3><p>El diseño se compone desde una columna; en tablas, la zona concreta de datos puede desplazarse horizontalmente y está etiquetada y enfocada, en lugar de hacer que toda la web desborde. A 360, 768 y 1280 px, la página principal no necesita desplazamiento horizontal.</p></article>
+      </div>
+    </section>
+
+    <section class="guia-bloque" aria-labelledby="evidencias">
+      <h2 id="evidencias">Evidencias y publicación</h2>
+      <p><code>grabaciones/</code> contiene cuatro GIF breves: <code>hero.gif</code> para la entrada del paisaje, <code>microinteracciones.gif</code> para el menú, <code>scroll.gif</code> para la aparición al desplazarse y <code>movimiento-reducido.gif</code> para comprobar el resultado sin movimiento. <code>capturas/</code> contiene las vistas de portada a 360, 768 y 1280 px y una captura con movimiento reducido. La publicación y el enlace del portfolio requieren el repositorio y el portfolio del alumno; no se atribuye una publicación que todavía no existe.</p>
+    </section>
+  </main>
+  <footer class="pie"><div class="contenedor pie-interior"><a class="marca marca-pie" href="index.html"><span class="marca-icono" aria-hidden="true">s</span><span>senda<span class="marca-punto">.</span></span></a><p>Hecho para mirar un poco más alrededor.</p><div class="pie-enlaces"><a href="index.html">Inicio</a><a href="rutas.html">Rutas</a></div><small>© 2026 Senda. Camina a tu ritmo.</small></div></footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- La segunda página mantiene el contenido funcional aunque el movimiento no esté disponible. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ed">
+  <meta name="description" content="Elige entre rutas de naturaleza cuidadas para distintos ritmos y niveles.">
+  <title>Rutas — Senda</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/animaciones.css">
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <a class="marca" href="index.html" aria-label="Senda, inicio"><span class="marca-icono" aria-hidden="true">s</span><span>senda<span class="marca-punto">.</span></span></a>
+    <details class="navegacion">
+      <summary class="menu-boton" aria-label="Abrir o cerrar navegación"><span class="menu-linea" aria-hidden="true"></span><span class="menu-linea" aria-hidden="true"></span></summary>
+      <nav class="menu" aria-label="Navegación principal">
+        <a class="enlace-nav" href="index.html">Inicio</a>
+        <a class="enlace-nav activo" href="rutas.html" aria-current="page">Rutas</a>
+        <a class="enlace-nav" href="movimiento.html">Guía de movimiento</a>
+        <a class="boton boton-nav" href="#elige">Encuentra tu ruta <span aria-hidden="true">↗</span></a>
+      </nav>
+    </details>
+    <!-- La navegación de escritorio se separa del disclosure usado en pantallas pequeñas. -->
+    <nav class="menu menu-escritorio" aria-label="Navegación principal">
+      <a class="enlace-nav" href="index.html">Inicio</a>
+      <a class="enlace-nav activo" href="rutas.html" aria-current="page">Rutas</a>
+      <a class="enlace-nav" href="movimiento.html">Guía de movimiento</a>
+      <a class="boton boton-nav" href="#elige">Encuentra tu ruta <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="pagina-hero contenedor">
+      <p class="ceja"><span class="punto-vivo" aria-hidden="true"></span> Caminos con espacio para ti</p>
+      <h1>Tu próxima ruta<br><span>empieza aquí.</span></h1>
+      <p>Elige por paisaje, distancia o ganas. Todas incluyen una guía local y margen para disfrutar.</p>
+    </section>
+
+    <!-- Las etiquetas informan dificultad y duración sin depender solo del color. -->
+    <section class="seccion contenedor rutas-seccion" id="elige" aria-labelledby="titulo-rutas">
+      <div class="lista-cabecera">
+        <div><p class="ceja">Selección de temporada</p><h2 id="titulo-rutas">Un camino para cada día</h2></div>
+        <p>4 propuestas · Bizkaia y alrededores</p>
+      </div>
+      <div class="rutas-grid">
+        <article class="ruta tarjeta revelar">
+          <div class="ruta-ilustracion ruta-hayedo"><span class="ruta-etiqueta">Bosque</span><input class="me-gusta-control" id="guardar-hayedo" type="checkbox" aria-label="Guardar ruta El hayedo de Otzarreta"><label class="me-gusta" for="guardar-hayedo"><span aria-hidden="true">♡</span></label></div>
+          <div class="ruta-contenido"><div class="ruta-meta"><span>Fácil</span><span>·</span><span>2 h 15 min</span></div><h3>El hayedo de Otzarreta</h3><p>Un paseo entre raíces y luz suave. Ideal para volver a empezar.</p><div class="ruta-pie"><span>5,2 km <span aria-hidden="true">↗</span></span><a href="#preguntas">Ver detalles <span aria-hidden="true">→</span></a></div></div>
+        </article>
+        <article class="ruta tarjeta revelar">
+          <div class="ruta-ilustracion ruta-costa"><span class="ruta-etiqueta">Costa</span><input class="me-gusta-control" id="guardar-costa" type="checkbox" aria-label="Guardar ruta Acantilados de Gorliz"><label class="me-gusta" for="guardar-costa"><span aria-hidden="true">♡</span></label></div>
+          <div class="ruta-contenido"><div class="ruta-meta"><span>Moderada</span><span>·</span><span>3 h</span></div><h3>Acantilados de Gorliz</h3><p>El mar cerca, el horizonte abierto y una parada sin mirar el reloj.</p><div class="ruta-pie"><span>7,8 km <span aria-hidden="true">↗</span></span><a href="#preguntas">Ver detalles <span aria-hidden="true">→</span></a></div></div>
+        </article>
+        <article class="ruta tarjeta revelar">
+          <div class="ruta-ilustracion ruta-valle"><span class="ruta-etiqueta">Montaña</span><input class="me-gusta-control" id="guardar-valle" type="checkbox" aria-label="Guardar ruta Vuelta al valle de Atxondo"><label class="me-gusta" for="guardar-valle"><span aria-hidden="true">♡</span></label></div>
+          <div class="ruta-contenido"><div class="ruta-meta"><span>Fácil</span><span>·</span><span>2 h 40 min</span></div><h3>Vuelta al valle de Atxondo</h3><p>Praderas, caseríos y el perfil del Anboto acompañando el camino.</p><div class="ruta-pie"><span>6,1 km <span aria-hidden="true">↗</span></span><a href="#preguntas">Ver detalles <span aria-hidden="true">→</span></a></div></div>
+        </article>
+        <article class="ruta tarjeta revelar">
+          <div class="ruta-ilustracion ruta-rio"><span class="ruta-etiqueta">Ribera</span><input class="me-gusta-control" id="guardar-rio" type="checkbox" aria-label="Guardar ruta Sendero del río Oka"><label class="me-gusta" for="guardar-rio"><span aria-hidden="true">♡</span></label></div>
+          <div class="ruta-contenido"><div class="ruta-meta"><span>Muy fácil</span><span>·</span><span>1 h 30 min</span></div><h3>Sendero del río Oka</h3><p>Un recorrido llano y tranquilo, perfecto para compartir en familia.</p><div class="ruta-pie"><span>3,4 km <span aria-hidden="true">↗</span></span><a href="#preguntas">Ver detalles <span aria-hidden="true">→</span></a></div></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- El volteo revela información secundaria, pero la misma información existe en texto accesible. -->
+    <section class="seccion contenedor detalle-seccion" aria-labelledby="titulo-prepara">
+      <div class="cabecera-seccion revelar">
+        <div><p class="ceja">Una pequeña preparación</p><h2 id="titulo-prepara">Salimos mejor<br><span>cuando sabemos.</span></h2></div>
+        <p class="texto-seccion">Una tarjeta con perspectiva ofrece una pista rápida; no esconde ninguna condición importante del paseo.</p>
+      </div>
+      <div class="tarjeta-giro-contenedor revelar" tabindex="0" role="group" aria-label="Consejo para preparar la mochila. Enfoca esta tarjeta para consultar el equipo recomendado.">
+        <article class="tarjeta-giro">
+          <div class="tarjeta-giro-cara tarjeta-giro-frente">
+            <span class="giro-icono" aria-hidden="true">↗</span><p class="ceja">Guarda este consejo</p><h3>El equipo justo<br>es el más sencillo.</h3>
+            <p class="giro-ayuda">Pasa el cursor o enfoca esta tarjeta para ver la lista.</p>
+          </div>
+          <div class="tarjeta-giro-cara tarjeta-giro-dorso">
+            <p class="ceja">Antes de salir</p><h3>En la mochila</h3>
+            <ul><li>Calzado con suela cómoda</li><li>Agua y algo para picar</li><li>Una capa ligera para la lluvia</li></ul>
+            <p>Si tienes dudas, escríbenos y lo vemos contigo.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="preguntas seccion contenedor" id="preguntas" aria-labelledby="titulo-preguntas">
+      <div><p class="ceja">Resolvemos dudas</p><h2 id="titulo-preguntas">Antes de salir</h2></div>
+      <div class="preguntas-lista">
+        <details><summary>¿Tengo que tener experiencia?</summary><p>No. Cada ruta indica su distancia y dificultad, y la persona guía adapta el ritmo al grupo.</p></details>
+        <details><summary>¿Qué pasa si llueve?</summary><p>Si las condiciones no son seguras, te avisamos y puedes cambiar la fecha o recibir el reembolso.</p></details>
+        <details><summary>¿Cómo llego al punto de encuentro?</summary><p>En la confirmación compartimos ubicación, opciones de transporte público y hora de encuentro.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie"><div class="contenedor pie-interior"><a class="marca marca-pie" href="index.html"><span class="marca-icono" aria-hidden="true">s</span><span>senda<span class="marca-punto">.</span></span></a><p>Hecho para mirar un poco más alrededor.</p><div class="pie-enlaces"><a href="index.html">Inicio</a><a href="movimiento.html">Guía de movimiento</a></div><small>© 2026 Senda. Camina a tu ritmo.</small></div></footer>
+</body>
+</html>
