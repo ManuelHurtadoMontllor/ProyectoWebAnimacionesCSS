@@ -10,7 +10,7 @@ Web responsive mobile first para descubrir rutas de naturaleza. Proyecto realiza
 - `css/estilos.css`: diseño, componentes y responsive.
 - `css/animaciones.css`: tokens, transiciones, keyframes, movimiento reducido y apariciones con scroll timelines CSS. Sin soporte para esa función, el contenido sigue visible.
 - `capturas/`: capturas de la portada a 360, 768 y 1280 px, más una captura con movimiento reducido.
-- `grabaciones/`: GIFs breves de la entrada de portada, el menú, la aparición al desplazarse y movimiento reducido.
+- `grabaciones/`: cinco GIFs breves de la portada, menú, aparición con scroll timelines, favoritos y movimiento reducido.
 
 ## Probar localmente
 
