@@ -3,6 +3,8 @@
   --duracion-rapida: 160ms;
   --duracion-media: 320ms;
   --duracion-lenta: 650ms;
+  --duracion-pulso: 2.8s;
+  --duracion-ambiente: 18s;
   --curva-suave: cubic-bezier(.2, .7, .2, 1);
   --curva-salida: cubic-bezier(.16, 1, .3, 1);
 }
@@ -19,7 +21,32 @@ a, button, summary, input, .me-gusta, .tarjeta, .tarjeta-giro-contenedor, .menu,
   .menu { transform: none; opacity: 1; visibility: visible; }
 }
 
-/* La deriva del sol señala el foco visual del paisaje y se ejecuta una sola vez. */
+/* La portada presenta el titular primero y deja que las acciones lleguen después. */
+.hero-texto > .ceja,
+.hero-texto > h1,
+.hero-texto > .hero-bajada,
+.hero-texto > .hero-acciones,
+.hero-texto > .hero-dato {
+  animation: entrar-en-escena var(--duracion-lenta) var(--curva-salida) both;
+}
+.hero-texto > .ceja { animation-delay: 80ms; }
+.hero-texto > h1 { animation-delay: 160ms; }
+.hero-texto > .hero-bajada { animation-delay: 240ms; }
+.hero-texto > .hero-acciones { animation-delay: 320ms; }
+.hero-texto > .hero-dato { animation-delay: 400ms; }
+@keyframes entrar-en-escena {
+  from { transform: translateY(.8rem); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* La deriva de la montaña lejana da profundidad al paisaje sin mover su marco. */
+.montana-lejana { animation: deriva-suave var(--duracion-ambiente) var(--curva-suave) infinite alternate; }
+@keyframes deriva-suave {
+  from { transform: translateX(-.3rem) scale(.9); }
+  to { transform: translateX(.3rem) scale(.9); }
+}
+
+/* La entrada del sol dirige la mirada hacia el punto luminoso de la ilustración. */
 .sol { animation: amanecer var(--duracion-lenta) var(--curva-salida) both; }
 @keyframes amanecer {
   from { transform: translateY(.8rem); opacity: .35; }
@@ -27,7 +54,7 @@ a, button, summary, input, .me-gusta, .tarjeta, .tarjeta-giro-contenedor, .menu,
 }
 
 /* El punto acompaña la etiqueta de disponibilidad: un pulso discreto, no una alarma. */
-.punto-vivo { animation: respirar 2.8s var(--curva-suave) infinite; }
+.punto-vivo { animation: respirar var(--duracion-pulso) var(--curva-suave) infinite; }
 @keyframes respirar {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(.72); opacity: .55; }
@@ -47,6 +74,37 @@ a, button, summary, input, .me-gusta, .tarjeta, .tarjeta-giro-contenedor, .menu,
   to { transform: translateY(0); opacity: 1; }
 }
 
+/* El terreno responde al hover y al foco acercando sus capas en lugar de agrandar la tarjeta. */
+.ruta-ilustracion::before, .ruta-ilustracion::after {
+  transform-origin: center;
+  transition: transform var(--duracion-media) var(--curva-salida);
+}
+.ruta:focus-within .ruta-ilustracion::before {
+  transform: scale(1.025);
+}
+.ruta:focus-within .ruta-ilustracion::after {
+  transform: scale(1.04);
+}
+@media (hover: hover) {
+  .ruta:hover .ruta-ilustracion::before { transform: scale(1.025); }
+  .ruta:hover .ruta-ilustracion::after { transform: scale(1.04); }
+}
+
+/* Marcar un favorito confirma la acción con un único pequeño rebote de escala. */
+.me-gusta-control:checked + .me-gusta span::after {
+  animation: favorito-guardado var(--duracion-media) var(--curva-salida) both;
+}
+@keyframes favorito-guardado {
+  from { transform: scale(.55); opacity: .5; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* El signo girado permite reconocer de un vistazo qué respuesta está desplegada. */
+.faq-icono {
+  transition: transform var(--duracion-rapida) var(--curva-suave);
+}
+.preguntas-lista details[open] .faq-icono { transform: rotate(45deg); }
+
 /* El giro 3D es una vista previa opcional; al enfocar con teclado también se descubre. */
 .tarjeta-giro { transition: transform var(--duracion-media) var(--curva-suave); }
 .tarjeta-giro-contenedor:focus-within .tarjeta-giro { transform: rotateY(180deg); }
@@ -60,6 +118,13 @@ a, button, summary, input, .me-gusta, .tarjeta, .tarjeta-giro-contenedor, .menu,
     transition-duration: .01ms !important;
   }
   .revelar { animation: none; transform: none; opacity: 1; }
+  .hero-texto > .ceja, .hero-texto > h1, .hero-texto > .hero-bajada,
+  .hero-texto > .hero-acciones, .hero-texto > .hero-dato,
+  .montana-lejana, .me-gusta-control:checked + .me-gusta span::after {
+    animation: none;
+  }
+  .ruta-ilustracion::before, .ruta-ilustracion::after { transition: none; }
+  .faq-icono { transition: none; }
   .menu, .navegacion[open] .menu { transform: none; }
   .tarjeta-giro-contenedor:focus-within .tarjeta-giro { transform: none; }
 }

@@ -173,7 +173,9 @@ h1, h2, h3, p { margin-top: 0; }
 .preguntas h2 { font-size: clamp(2rem, 8vw, 3rem); }
 .preguntas-lista details { border-top: 1px solid var(--linea); }
 .preguntas-lista details:last-child { border-bottom: 1px solid var(--linea); }
-.preguntas-lista summary { padding: 1rem .1rem; cursor: pointer; font-size: .88rem; font-weight: 650; list-style-position: inside; }
+.preguntas-lista summary { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: 1rem .1rem; cursor: pointer; font-size: .88rem; font-weight: 650; list-style: none; }
+.preguntas-lista summary::-webkit-details-marker { display: none; }
+.faq-icono { display: grid; width: 1.7rem; height: 1.7rem; flex: 0 0 auto; place-items: center; border: 1px solid var(--linea); border-radius: 50%; color: var(--verde); font-size: 1rem; font-weight: 400; }
 .preguntas-lista details p { margin: 0; padding: 0 .3rem 1rem 1.4rem; color: var(--suave); font-size: .8rem; }
 
 /* Guía de movimiento en HTML: estas reglas hacen legibles sus tablas en móvil. */
